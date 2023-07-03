@@ -111,10 +111,10 @@ CONFIG_PACKAGE_luci-app-upnp=y
 # CONFIG_PACKAGE_luci-app-yggdrasil is not set
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-store=y
-CONFIG_PACKAGE_luci-app-turboacc=y
+# CONFIG_PACKAGE_luci-app-turboacc=y
 CONFIG_PACKAGE_luci-app-ramfree=y
 CONFIG_PACKAGE_luci-app-quickstart=y
-CONFIG_PACKAGE_luci-app-netspeedtest=y
+# CONFIG_PACKAGE_luci-app-netspeedtest=y
 
 luci-app-store luci-app-turboacc luci-app-ramfree luci-app-quickstart
 # end of 1. Applications
