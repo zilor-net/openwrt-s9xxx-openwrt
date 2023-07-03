@@ -105,13 +105,10 @@ adjust_settings() {
     fi
 
     # 添加第三方源
-    if [[ -s "repositories.conf" ]]; then
-    else
-         error_msg "There is no .config file in the [ ${download_file} ]"
-    fi
-    sed -i "/option check_signature/ s/^/#/" repositories.conf
-    echo >> repositories.conf
-    echo 'src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' >> repositories.conf
+     sed -i "/option check_signature/ s/^/#/" repositories.conf
+     echo >> repositories.conf
+     echo 'src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' >> repositories.conf
+    
     sync && sleep 3
     echo "$(cat repositories.conf)"
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
