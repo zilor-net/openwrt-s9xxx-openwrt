@@ -105,12 +105,13 @@ adjust_settings() {
     fi
 
     # 添加第三方源
-     sed -i "/option check_signature/ s/^/#/" repositories.conf
-     echo >> repositories.conf
-     echo 'src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' >> repositories.conf
+    # sed -i "/option check_signature/ s/^/#/" repositories.conf
+    # echo >> repositories.conf
+    # echo 'src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' >> repositories.conf
     
     sync && sleep 3
-    echo "$(cat repositories.conf)"
+    
+    # echo "$(cat repositories.conf)"
     echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
 
@@ -139,9 +140,10 @@ custom_packages() {
     [[ "${?}" -eq "0" ]] || error_msg "[ ${amlogic_i18n} ] download failed!"
     echo -e "${INFO} The [ ${amlogic_i18n} ] is downloaded successfully."
 
-    # Download other luci-app-xxx
-    # ......
-
+    wget "https://op.supes.top/22.03/packages/aarch64_cortex-a53/luci-app-openclash_0.45.121-240_all.ipk" -q -P packages
+    wget "https://op.supes.top/22.03/packages/aarch64_cortex-a53/luci-app-quickstart_git-24.137.45301-80bad49_all.ipk" -q -P packages
+    wget "https://op.supes.top/22.03/packages/aarch64_cortex-a53/luci-app-store_0.1.13-3_all.ipk" -q -P packages
+    
     sync && sleep 3
     echo -e "${INFO} [ packages ] directory status: $(ls packages -l 2>/dev/null)"
 }
